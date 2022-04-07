@@ -29,16 +29,16 @@ class CursoController extends Controller
     {
         $curso = Curso::findOrFail($id);
         $curso -> nombre = $request -> nombre;
-        $curso -> fecha_inicio_curso = $request -> fecha_inicio_curso ? $request -> fecha_inicio_curso : now();
-        $curso -> fecha_final_curso = $request -> fecha_final_curso ?$request -> fecha_inicio_curso : now();
+        $curso -> fecha_inicio_curso = $request -> fecha_inicio_curso;
+        $curso -> fecha_final_curso = $request -> fecha_final_curso;
 
         $curso -> save();
         return response() -> json($curso);
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $curso = Curso::destroy($request->id);
+        $curso = Curso::destroy($id);
         return response() -> json($curso);
     }
 }

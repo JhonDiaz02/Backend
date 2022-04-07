@@ -18,7 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
      return $request->user();
 });
 
-Route::get('/curso', 'App\Http\controllers\CursoController@index');
-Route::post('/curso', 'App\Http\controllers\CursoController@store');
-Route::put('/curso/{id}', 'App\Http\controllers\CursoController@update');
-Route::delete('/curso/{id}', 'App\Http\controllers\CursoController@destroy');
+Route::apiResource('curso', 'App\Http\controllers\CursoController');
+
+// Route::get('/curso', 'App\Http\controllers\CursoController@index');
+// Route::post('/curso', 'App\Http\controllers\CursoController@store');
+// Route::put('/curso/{id}', 'App\Http\controllers\CursoController@update');
+// Route::delete('/curso/{id}', 'App\Http\controllers\CursoController@destroy');
