@@ -20,8 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('curso', 'App\Http\controllers\CursoController');
 Route::apiResource('alumno', 'App\Http\controllers\AlumnoController');
-
-// Route::get('/curso', 'App\Http\controllers\CursoController@index');
+Route::apiResource('alumno_curso', 'App\Http\controllers\AlumnoCursoController');
 // Route::post('/curso', 'App\Http\controllers\CursoController@store');
 // Route::put('/curso/{id}', 'App\Http\controllers\CursoController@update');
 // Route::delete('/curso/{id}', 'App\Http\controllers\CursoController@destroy');
