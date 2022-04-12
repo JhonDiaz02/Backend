@@ -11,8 +11,9 @@ class AlumnoCursoController extends Controller
 {
     public function index()
     {
-        $curso = AlumnoCurso::all();
-        return response() -> json($curso);
+        $curso = Curso::all();
+        $alumno = Alumno::all();
+        return compact('curso','alumno');
     }
 
     public function store(Request $request)
