@@ -14,5 +14,11 @@ class AlumnoCurso extends Model
         'curso_id'
     ];
 
-    use HasFactory;
+    public function alumno(){
+        return $this->hasOne(Alumno::class,'id','alumno_id');
+    }
+
+    public function curso(){
+        return $this->hasOne(Curso::class,'id','curso_id');
+    }
 }

@@ -14,11 +14,10 @@ class Alumno extends Model
         'identificacion',
         'correo'
     ];
-
-    use HasFactory;
     
-    public function curso(){
-        return $this->belongsToMany(Curso::class, 'alumno_curso');
+    public function cursos()
+    {
+        return $this->hasMany(AlumnoCurso::class);
     }
     
 }

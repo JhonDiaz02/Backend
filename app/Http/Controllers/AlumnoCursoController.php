@@ -18,21 +18,36 @@ class AlumnoCursoController extends Controller
 
     public function store(Request $request)
     {
-        $alumno_curso = new AlumnoCurso();
-        $alumno_curso -> alumno_id = $request -> alumno_id;
-        $alumno_curso -> curso_id = $request -> curso_id;
-
-        $alumno_curso -> save();
+        $valida = AlumnoCurso::where('alumno_id',$request -> alumno_id)->where('curso_id',$request -> curso_id)->first();
+        if(!$valida){
+            $alumno_curso = new AlumnoCurso();
+            $alumno_curso -> alumno_id = $request -> alumno_id;
+            $alumno_curso -> curso_id = $request -> curso_id;
+    
+            $alumno_curso -> save();
+        }else{
+            return response()->json([
+                'message' => 'El alumno ya esta en ese curso'
+            ], 404);
+        }
     }
 
     public function update(Request $request, $id)
     {
-        $alumno_curso = AlumnoCurso::findOrFail($id);
-        $alumno_curso -> alumno_id = $request -> alumno_id;
-        $alumno_curso -> curso_id = $request -> curso_id;
+        $valida = AlumnoCurso::where('alumno_id',$request -> alumno_id)->where('curso_id',$request -> curso_id)->first();
+        if(!$valida){
 
-        $alumno_curso -> save();
-        return response() -> json($alumno_curso);
+            $alumno_curso = AlumnoCurso::findOrFail($id);
+            $alumno_curso -> alumno_id = $request -> alumno_id;
+            $alumno_curso -> curso_id = $request -> curso_id;
+    
+            $alumno_curso -> save();
+            return response() -> json($alumno_curso);
+        }else{
+            return response()->json([
+                'message' => 'Record not found.'
+            ], 404);
+        }
     }
 
     public function destroy($id)

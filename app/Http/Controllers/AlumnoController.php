@@ -9,7 +9,7 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-        $alumno = Alumno::all();
+        $alumno = Alumno::with('cursos','cursos.curso')->get()->toArray();
         return response() -> json($alumno);
     }
 
