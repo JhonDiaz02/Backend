@@ -9,8 +9,8 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-        $alumno = Alumno::with('cursos','cursos.curso')->get()->toArray();
-        return response() -> json($alumno);
+        $curso = Alumno::with('alumno','alumno')->get()->toArray();
+        return response() -> json($curso);
     }
 
     public function store(Request $request)

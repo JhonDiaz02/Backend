@@ -6,25 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('pais', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->date('fecha_inicio_curso')->nullable();
-            $table->date('fecha_final_curso')->nullable();
             $table->timestamps();
         });
     }
 
-    
+
     public function down()
     {
-        Schema::dropIfExists('curso');
+        Schema::dropIfExists('pais');
     }
 };

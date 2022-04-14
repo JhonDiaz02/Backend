@@ -10,14 +10,18 @@ class Alumno extends Model
     protected $table = 'alumno';
 
     protected $fillable = [
+        'ciudad_id',
         'nombre',
         'identificacion',
         'correo'
     ];
     
-    public function cursos()
-    {
+    public function cursos(){
         return $this->hasMany(AlumnoCurso::class);
+    }
+
+    public function alumno(){
+        return $this->hasMany(Ciudad::class,'id', 'ciudad_id');
     }
     
 }

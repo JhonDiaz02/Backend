@@ -13,22 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('alumno', function (Blueprint $table) {
+        Schema::create('departamento', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ciudad_id')
+            $table->foreignId('pais_id')
             ->nullable()
-            ->constrained('ciudad')
+            ->constrained('pais')
             ->nullOnDelete();
-            $table->string('nombre')->nullable();
-            $table->bigInteger('identificacion')->nullable();
-            $table->string('correo')->nullable();
+            $table->string('nombre');
             $table->timestamps();
         });
     }
 
-    
     public function down()
     {
-        Schema::dropIfExists('alumno');
+        Schema::dropIfExists('departamento');
     }
 };
