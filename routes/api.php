@@ -27,5 +27,5 @@ Route::apiResource('alumno_curso', 'App\Http\controllers\AlumnoCursoController')
 Route::apiResource('departamento', 'App\Http\controllers\DepartamentoController');
 Route::apiResource('ciudad', 'App\Http\controllers\CiudadController');
 
-Route::get('/pais/{id}', 'App\Http\controllers\PaisController@show');
-Route::get('/pais', 'App\Http\controllers\PaisController@index');
+Route::get('pais/{id}', 'App\Http\controllers\PaisController@show');
+Route::get('pais', 'App\Http\controllers\PaisController@index');
