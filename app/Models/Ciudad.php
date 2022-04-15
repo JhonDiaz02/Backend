@@ -18,8 +18,8 @@ class Ciudad extends Model
         return $this->hasMany(Alumno::class);
     }
 
-    public function ciudad(){
-        return $this->hasMany(Ciudad::class,'id', 'departamento_id');
+    public function depto(){
+        return $this->hasOne(Departamento::class,'id', 'departamento_id');
     }
 
 }

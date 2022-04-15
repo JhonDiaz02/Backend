@@ -18,8 +18,8 @@ class Departamento extends Model
         return $this->hasMany(Ciudad::class);
     }
 
-    public function departamento(){
-        return $this->hasMany(Departamento::class,'id', 'pais_id');
+    public function pais(){
+        return $this->hasOne(Pais::class,'id', 'pais_id');
     }
 
 }
