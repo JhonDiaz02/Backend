@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller
 {
-    public function index()
+    public function show($id)
     {
-         $departamento = Departamento::all();
-         return response() -> json($departamento);
+        $pais = Departamento::with('ciudades')->find($id)->toArray();
+        return response() -> json($pais);
     }
 }

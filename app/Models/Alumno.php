@@ -20,6 +20,10 @@ class Alumno extends Model
         return $this->hasMany(AlumnoCurso::class);
     }
 
+    public function ciudadable(){
+        return $this->hasOne(Ciudad::class,'id', 'ciudad_id');
+    }
+
     public function alumno(){
         return $this->hasMany(Ciudad::class,'id', 'ciudad_id');
     }

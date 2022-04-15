@@ -10,7 +10,7 @@ class PaisController extends Controller
 {
     public function show($id)
     {
-        $pais = Pais::with('departamentos','departamentos')->find($id);
+        $pais = Pais::with('departamentos')->find($id)->toArray();
         return response() -> json($pais);
     }
 

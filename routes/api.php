@@ -24,8 +24,13 @@ Route::apiResource('alumno', 'App\Http\controllers\AlumnoController');
 Route::apiResource('alumno_curso', 'App\Http\controllers\AlumnoCursoController');
 
 // Route::apiResource('pais', 'App\Http\controllers\PaisController');
-Route::apiResource('departamento', 'App\Http\controllers\DepartamentoController');
-Route::apiResource('ciudad', 'App\Http\controllers\CiudadController');
+// Route::apiResource('departamento', 'App\Http\controllers\DepartamentoController');
+// Route::apiResource('ciudad', 'App\Http\controllers\CiudadController');
 
 Route::get('pais/{id}', 'App\Http\controllers\PaisController@show');
 Route::get('pais', 'App\Http\controllers\PaisController@index');
+
+Route::get('ciudad/{id}', 'App\Http\controllers\DepartamentoController@show');
+
+
+

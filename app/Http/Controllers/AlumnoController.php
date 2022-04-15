@@ -9,7 +9,7 @@ class AlumnoController extends Controller
 {
     public function index()
     {
-        $curso = Alumno::with('alumno','alumno')->get()->toArray();
+        $curso = Alumno::with('cursos','cursos.curso','ciudadable.ciudad')->get()->toArray();
         return response() -> json($curso);
     }
 
@@ -19,6 +19,7 @@ class AlumnoController extends Controller
         $alumno -> nombre = $request -> nombre;
         $alumno -> identificacion = $request -> identificacion;
         $alumno -> correo = $request -> correo;
+        $alumno -> ciudad_id = $request -> ciudad_id;
 
         $alumno -> save();
     }
@@ -29,6 +30,7 @@ class AlumnoController extends Controller
         $alumno -> nombre = $request -> nombre;
         $alumno -> identificacion = $request -> identificacion;
         $alumno -> correo = $request -> correo;
+        $alumno -> ciudad_id = $request -> ciudad_id;
 
         $alumno -> save();
         return response() -> json($alumno);
